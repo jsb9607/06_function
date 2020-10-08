@@ -3,25 +3,42 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-#if 0
-void square(int a)
+int get_integer()
 {
-	a = a*a;
+	int x;
+
+	printf("input : ");
+	scanf("%i", &x);
+
+	return x;
 }
-#else
-int square(int a)
+
+int factorial(int n)
 {
-	return a*a;
+	int res = 1;
+
+	for(int i=1 ; i<=n ; i++)
+	{
+		res = res*i;
+	}
+
+	return res;
 }
-#endif
+
+int combination(int n, int r)
+{
+	return factorial(n)/(factorial(n-r)*factorial(r));
+}
+
+
 int main(int argc, char *argv[]) 
 {
+	int n, r;
+	
+	n= get_integer();	
+	r= get_integer();
 
-	int a = 2;
-
-	//square(2);
-	//printf("a = %i\n", a);	
-	printf("a = %i\n", square(2));
+	printf("n : %i, r : %i---> combination : %i\n", n, r, combination(n, r));
 	
 	return 0;
 }
